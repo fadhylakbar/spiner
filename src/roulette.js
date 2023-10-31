@@ -2,35 +2,33 @@ import React, { useState } from "react";
 import { Wheel } from "react-custom-roulette";
 
 const data = [
-  { option: "iPhone" },
-  { option: "Smart TV" },
-  { option: "Car" },
-  { option: "Hose" },
-  { option: "Computer" },
-  { option: "Travel" },
-  { option: "Free Store" },
-  { option: "Palabras cortas" },
-  { option: "Sin premio" }
+  { option: "Mulyadi. S" },
+  { option: "Muslem" },
+  { option: "Zamzami Razali" },
+  { option: "Ibrahim Ahmad" },
 ];
 
 export default () => {
   const [mustSpin, setMustSpin] = useState(false);
-  const [prizeNumber, setPrizeNumber] = useState(0);
+  const [prizeNumber, setPrizeNumber] = useState(2);
 
   const handleSpinClick = () => {
-    const newPrizeNumber = Math.floor(Math.random() * data.length);
-    setPrizeNumber(newPrizeNumber);
+    setPrizeNumber(2);
     setMustSpin(true);
   };
 
   return (
-    <>
+    <div style={{display : "flex", flexDirection : "column", alignItems : "center", justifyContent : "center", backgroundColors : "red", gap : "20px", padding : "20px 0"}}>
+      <span style={{fontSize : "14px", fontWeight : "bold"}}>
+        Undian Pembangunan Tempat Wudhu Gampong Lam Isek
+      </span>
       <Wheel
         mustStartSpinning={mustSpin}
         prizeNumber={prizeNumber}
+        spinDuration={[0.40]}
         data={data}
         outerBorderColor={["#f2f2f2"]}
-        outerBorderWidth={[10]}
+        outerBorderWidth={[0]}
         innerBorderColor={["#f2f2f2"]}
         radiusLineColor={["#dedede"]}
         radiusLineWidth={[1]}
@@ -50,7 +48,6 @@ export default () => {
         }}
       />
       <button onClick={handleSpinClick}>SPIN</button>
-      {!mustSpin ? data[prizeNumber].option : "0"}
-    </>
+    </div>
   );
 };
